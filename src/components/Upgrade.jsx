@@ -43,8 +43,9 @@ const Upgrade = () => {
 		setCurrentButton(selected);
 	};
 
-	const buttons = tabObject.map((tabs) => (
+	const buttons = tabObject.map((tabs , i) => (
 		<button
+		key={i}
 			className={currentButton == tabs.title ? activeBtn : notActiveBtn}
 			data-title={tabs.title}
 			onClick={handleClick}
