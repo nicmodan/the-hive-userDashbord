@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body,
+html {
+	font-size: 1rem;
+	min-width: 100%;
+	min-height: 100vh;
+	font-family: 'Poppins', sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+.hide-scrollbar::-webkit-scrollbar {
+	display: none !important;
+}
+
+.profile-padding {
+	padding-inline: 15px;
+	padding-block: 8px;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+.sidebar-width {
+	width: 230px;
+}
+a {
+	font-family: 'Poppins', sans-serif;
+}
+.card-one {
+	background: url(https://teespring-ass.s3.amazonaws.com/upgrades/amaze-banner-bg.png)
+		center center / cover;
+	height: 23rem;
+	padding: 40px;
+}
+.card-one img,
+.card-four img {
+	object-position: left center;
+}
+.card-one h3 {
+	background: -webkit-linear-gradient(
+		146.62deg,
+		rgb(89, 164, 240) 14.03%,
+		rgb(55, 85, 240) 86.36%
+	);
+}
+.card-three h3 {
+	background: linear-gradient(
+		90deg,
+		rgb(0, 47, 255) -36.67%,
+		rgb(167, 93, 232) 31.49%,
+		rgb(230, 91, 167) 58.38%,
+		rgb(253, 113, 112) 80.51%
+	);
+	font-size: 3rem;
+	line-height: 1.1;
+	margin-bottom: 1rem;
+	/* max-width: 18rem; */
+}
+@media screen and (min-width: 87.5rem) {
+	.card-three h3 {
+		font-size: 3.5rem;
+	}
+}
+.card-one h3,
+.card-three h3 {
+	font-size: 50px;
+	/* max-width: 10rem; */
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-family: 'DM Sans', sans-serif;
+}
+.box-shadow:hover {
+	box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.3);
+}
+.card-one span {
+	margin-inline: 0.4rem;
+}
+
+.card-one p {
+	font-family: 'DM Sans', sans-serif;
+	font-size: 0.9rem;
+}
+
+.card-btn {
+	background-color: white;
+	color: black;
+	font-size: 0.75rem;
+	transition: all 0.7s ease-in-out;
+	padding: 0.5rem;
+	line-height: 1rem;
+	border-radius: 8px;
+	margin-top: 0.7rem;
+}
+.card-btn:hover {
+	background-color: white / 0.75;
+}
+.btn-hover {
+	box-shadow: 0 8px 8px -5px rgb(0 0 0 / 0.6);
+}
+
+.card-two {
+	min-height: 200px;
+	background: linear-gradient(
+		145.52deg,
+		rgba(4, 219, 25, 0.7) -27.26%,
+		rgb(73, 235, 245) 102.31%
+	);
+	-webkit-box-pack: justify;
+}
+.card-two h3 {
+	font-size: 2.8rem;
+	font-weight: 500;
+	line-height: 1.2;
+	margin-bottom: 1rem;
+}
+.card-two h6 {
+	font-size: 0.8rem;
+	margin-bottom: 1rem;
+}
+
+.card-three {
+	/* min-height: 30rem; */
+	-webkit-box-pack: justify;
+}
+.card-four {
+	background: linear-gradient(
+		3.29deg,
+		rgb(163, 62, 242) 26.68%,
+		rgb(60, 4, 178) 104.31%
+	);
+	height: 23rem;
+	padding: 32px;
+}
+.card-four h3 {
+	font-size: 2.8rem;
+	line-height: 1.2;
+}
+.card-four p {
+	max-width: 23rem;
+}
+.card-four .hero {
+	background: url(https://teespring-ass.s3.amazonaws.com/upgrades/springmark-feature.png)
+		center center / contain no-repeat;
+}
