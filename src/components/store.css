@@ -1,0 +1,30 @@
+.store-input {
+    max-width: 70% !important;
+    border: none !important;
+    font-size: 1.3rem !important;
+    padding: 0.4875rem 0.475rem !important;
+    transition: none !important;
+    margin: 0px !important;
+}
+.link-form--container:hover  .store-input{
+    background-color: rgb(229 231 235 / 1) !important;
+}
+input:focus{
+    border: 1px solid #d8dae0 !important;
+}
+.btn {
+    height: 35px;
+    min-width: 85px;
+    border: 1px solid #08080d;
+    color: #757575;
+    border-color: #bbb;
+    font-weight: 500;
+    line-height: 1;
+    padding-inline: .5rem
+}
+.modal-box{
+    min-width: 500px;
+}
+.link-input{
+    min-width: 100% !important;
+}
