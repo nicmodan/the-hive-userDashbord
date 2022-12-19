@@ -6,7 +6,7 @@ import Sidebar from '../components/Sidebar'
 import Dashboard from './Dashboard'
 const Home = () => {
   return (
-    <div className='flex bg-gray-100 md:flex-row flex-col h-screen'>
+    <div className='flex bg-gray-100 md:flex-row flex-col h-screen relative'>
         <div className='hidden md:flex h-screen flex-initial'>
             <Sidebar />
         </div>

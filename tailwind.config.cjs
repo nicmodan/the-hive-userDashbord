@@ -7,6 +7,9 @@ module.exports = {
       margin: {
         320: '320px',
       },
+      fontSize: {
+        '2xs': '10px',
+      },
       width: {
         190: '190px',
         275: '275px',
@@ -61,7 +64,7 @@ module.exports = {
       backgroundColor: {
         mainColor: '#FBF8F9',
         secondaryColor: '#F0F0F0',
-        blackOverlay: 'rgba(0, 0 ,0 ,0.7)',
+        blackOverlay: 'rgba(0, 0 ,0 ,0.4)',
       },
       keyframes: {
         'slide-in': {
@@ -97,7 +100,7 @@ module.exports = {
       animation: {
         'slide-in': 'slide-in 0.5s ease-out',
         'slide-fwd': ' slide-fwd 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
-        'fade-in': 'fade-in 0.5s ease-in-out'
+        'fade-in': 'fade-in 0.35s ease-in-out'
       },
       transitionProperty: {
         height: 'height',

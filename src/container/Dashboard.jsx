@@ -6,7 +6,7 @@ import Upgrade from '../components/Upgrade'
 import Stores from '../components/Stores'
 const Dashboard = () => {
   return (
-    <div className='min-h-screen bg-gray-100'>
+    <div className='min-h-screen bg-gray-100 overflow-y-hidden'>
       <Routes>
         <Route path='/' element={<Upgrade />} />
         <Route path='/payments' element={<Payment />} />

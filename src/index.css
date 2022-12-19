@@ -151,3 +151,37 @@ a {
 	background: url(https://teespring-ass.s3.amazonaws.com/upgrades/springmark-feature.png)
 		center center / contain no-repeat;
 }
+.btn-pill {
+	border-radius: 200px;
+}
+
+iframe {
+    overflow-clip-margin: content-box !important;
+    /* border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial; */
+    overflow: clip !important;
+}
+.preview-wrap {
+    width: 100%;
+    height: 200px;
+    padding: 0;
+    overflow: hidden;
+}
+.frame-wrap {
+    width: 1280px;
+    height: 786px;
+    border: 0;
+    -ms-transform: scale(0.75);
+    -moz-transform: scale(0.75);
+    -o-transform: scale(0.75);
+    -webkit-transform: scale(0.75);
+    transform: scale(0.29);
+
+    -ms-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
