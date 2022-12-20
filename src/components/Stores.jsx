@@ -1,32 +1,36 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import Select from 'react-select';
+import { useFormContext } from '../context/FormContext';
 import { AiOutlineEye } from 'react-icons/ai';
-import { FiEdit2 } from 'react-icons/fi';
+import { FiEdit2, FiInstagram } from 'react-icons/fi';
 import { TbWorld } from 'react-icons/tb';
-import { GrAddCircle, GrClose } from 'react-icons/gr';
+import { GrAddCircle, GrClose, GrYoutube } from 'react-icons/gr';
+import { TfiTwitterAlt } from 'react-icons/tfi';
+import { FaTwitch, FaDiscord, FaTiktok, FaFacebookF } from 'react-icons/fa';
+import { GiCancel } from 'react-icons/gi';
 
 import './store.css';
 
-const socials = {
-	Facebook: '',
-	Twitter: '',
-	Instagram: '',
-	Youtube: '',
-	Twitch: '',
-	Website: '',
-	Discord: '',
-	Tiktok: '',
+const icons = {
+	Facebook: FaFacebookF,
+	Twitter: TfiTwitterAlt,
+	Instagram: FiInstagram,
+	Youtube: GrYoutube,
+	Twitch: FaTwitch,
+	Website: TbWorld,
+	Discord: FaDiscord,
+	Tiktok: FaTiktok,
 };
 
 const options = [
-	{ value: 'Facebook', label: 'Facebook', color: 'blue' },
-	{ value: 'Twitter', label: 'Twitter', color: 'blue' },
-	{ value: 'Instagram', label: 'Instagram', color: 'blue' },
-	{ value: 'Youtube', label: 'Youtube', color: 'blue' },
-	{ value: 'Twitch', label: 'Twitch', color: 'blue' },
-	{ value: 'Website', label: 'Website', color: 'blue' },
-	{ value: 'Discord', label: 'Discord', color: 'blue' },
-	{ value: 'Tiktok', label: 'Tiktok', color: 'blue' },
+	{ value: 'Facebook', label: 'Facebook' },
+	{ value: 'Twitter', label: 'Twitter' },
+	{ value: 'Instagram', label: 'Instagram' },
+	{ value: 'Youtube', label: 'Youtube' },
+	{ value: 'Twitch', label: 'Twitch' },
+	{ value: 'Website', label: 'Website' },
+	{ value: 'Discord', label: 'Discord' },
+	{ value: 'Tiktok', label: 'Tiktok' },
 ];
 
 const customStyle = {
@@ -60,32 +64,50 @@ const customStyle = {
 };
 const Stores = () => {
 	let linkInput = useRef(null);
+	const { user } = useFormContext();
 
-	const [storeLink, setStoreLink] = useState('my-store-d74da');
-	const [newStoreLink, setNewStoreLink] = useState('my-store-d74da');
+	const [storeLink, setStoreLink] = useState(user.storeName);
 	const [isfocused, setIsfocused] = useState(false);
 	const [selectedSocials, setSelectedSocials] = useState(null);
 	const [isSelected, setIsSelected] = useState(false);
-	const [socialInfo, setsocialInfo] = useState(socials);
+	const [socialInfo, setsocialInfo] = useState(user.socials);
 	const [linkInfo, setLinkInfo] = useState(' ');
 	const [modalOpen, setModalOpen] = useState(false);
 
 	const handleChange = (e) => {
 		const { value } = e.target;
-		setNewStoreLink(value);
-		setsocialInfo;
-		// console.log(newStoreLink);
+		setStoreLink(value);
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 	};
+
 	const updateSocials = (e) => {
 		e.preventDefault();
-		setsocialInfo({ ...socialInfo, [selectedSocials?.value]: linkInfo });
-		console.log(socialInfo);
+		setsocialInfo((prevObj) =>
+			prevObj.map((social) => {
+				if (selectedSocials?.value == social.name) {
+					return { ...social, url: linkInfo };
+				}
+				return social;
+			})
+		);
 		setIsSelected(false);
-    setModalOpen(false)
+		setModalOpen(false);
+		setLinkInfo('');
+	};
+
+	const handleDelete = (e) => {
+		setsocialInfo((prevObj) =>
+			prevObj.map((social) => {
+				if (e.target.id == social.name) {
+					setSocialList[(prevArr) => [...prevArr, social]];
+					return { ...social, url: '' };
+				}
+				return social;
+			})
+		);
 	};
 
 	return (
@@ -97,24 +119,22 @@ const Stores = () => {
 							href={`https://${storeLink}.creator-spring.com`}
 							className='text-gray-500 text-xs'
 						>
-							{`https://${storeLink}.creator-spring.com`}
+							{`https://${storeLink}.the-hive.com`}
 						</a>
 						<div
 							className={`w-full ${
 								isfocused ? '' : 'hover:bg-gray-200 link-form--container'
 							} my-1`}
 						>
-							<form
-								onSubmit={handleSubmit}
-							>
+							<form onSubmit={handleSubmit}>
 								<input
 									type='text'
-									value={newStoreLink}
+									value={storeLink}
 									onChange={handleChange}
 									onFocus={() => setIsfocused(true)}
 									onBlur={() => setIsfocused(false)}
 									className='store-input'
-                  ref={linkInput}
+									ref={linkInput}
 								/>
 							</form>
 						</div>
@@ -129,7 +149,7 @@ const Stores = () => {
 							<button
 								type='button'
 								className='btn flex justify-center items-center gap-1 text-gray-500 text-xs'
-                onClick={() => linkInput.current.focus() }
+								onClick={() => linkInput.current.focus()}
 							>
 								<FiEdit2 />
 								Edit Name
@@ -183,9 +203,48 @@ const Stores = () => {
 						Display your social profile links on your store
 					</p>
 					<h6 className='text-xs font-extrabold'>Profile</h6>
-					<div className='flex gap-2 my-1' onClick={() => setModalOpen(true)}>
-						<GrAddCircle />
-						<p className='text-xs text-gray-600'> Add account Profile</p>
+					<div className='flex flex-col gap-2 my-1'>
+						<div>
+							{socialInfo.map((social) => {
+								if (social.url != '') {
+									const Icon = icons[social.name];
+									return (
+										<div
+											key={social.name}
+											className='flex w-full gap-5 text-xs py-3 px-1 bg-gray-200'
+										>
+											<Icon />
+											<h3>{social.name}</h3>
+											<a
+												href={social.url}
+												className='text-gray-400'
+											>
+												{social.url}
+											</a>
+											<div
+												onClick={(e) => handleDelete(e)}
+												id={social.name}
+											>
+												<button
+													type='button'
+													className='float-right pointer-events-none'
+												>
+													<GiCancel />
+												</button>
+											</div>
+										</div>
+									);
+								}
+							})}
+						</div>
+
+						<div
+							className='flex gap-2 my-1'
+							onClick={(e) => setModalOpen(true)}
+						>
+							<GrAddCircle />
+							<p className='text-xs text-gray-600'> Add account Profile</p>
+						</div>
 					</div>
 				</div>
 
@@ -193,9 +252,9 @@ const Stores = () => {
 				{modalOpen && (
 					<div className='w-screen h-screen animate-fade-in bg-blackOverlay absolute top-0 left-0 flex justify-center items-center'>
 						<div className='bg-white rounded-lg p-5 modal-box -mt-5 relative'>
-              <div onClick={() => setModalOpen(false)} >
-                <GrClose className='bg-white rounded-full w-10 h-10 p-2 shadow-md absolute -right-5 -top-5'/>
-              </div>
+							<div onClick={() => setModalOpen(false)}>
+								<GrClose className='bg-white rounded-full w-10 h-10 p-2 shadow-md absolute -right-5 -top-5' />
+							</div>
 							<h3 className='text-lg font-semibold mb-5'>
 								Add a social profile
 							</h3>

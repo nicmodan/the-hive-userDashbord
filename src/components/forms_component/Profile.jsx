@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Profile = ({ handleChange, formState }) => {
+const Profile = ({ handleChange, user }) => {
 	return (
 		<div>
 			<div className='flex justify-between'>
@@ -16,7 +16,7 @@ const Profile = ({ handleChange, formState }) => {
 							type='text'
 							name='name'
 							id='first'
-							value={formState.name}
+							value={user.name}
 							onChange={(e) => handleChange(e)}
 	
 						/>
@@ -33,7 +33,7 @@ const Profile = ({ handleChange, formState }) => {
 							type='text'
 							name='displayName'
 							id='displayName'
-							value={formState.displayName}
+							value={user.displayName}
 							onChange={(e) => handleChange(e)}
 							// required
 						/>
@@ -52,7 +52,7 @@ const Profile = ({ handleChange, formState }) => {
 							type='tel'
 							name='phone'
 							id='phone'
-							value={formState.phone}
+							value={user.phone}
 							onChange={(e) => handleChange(e)}
 							// required
 						/>
@@ -123,7 +123,7 @@ const Profile = ({ handleChange, formState }) => {
 								type='text'
 								name='street'
 								id='street'
-								value={formState.street}
+								value={user.street}
 								onChange={(e) => handleChange(e)}
 								// required
 							/>
@@ -135,7 +135,7 @@ const Profile = ({ handleChange, formState }) => {
 									type='text'
 									name='apt'
 									id='apt'
-									value={formState.apt}
+									value={user.apt}
 									onChange={(e) => handleChange(e)}
 									// required
 								/>
@@ -152,7 +152,7 @@ const Profile = ({ handleChange, formState }) => {
 								type='text'
 								name='city'
 								id='city'
-								value={formState.city}
+								value={user.city}
 								onChange={(e) => handleChange(e)}
 							/>
 							<p className='error-msg -mt-3'>City</p>
@@ -163,7 +163,7 @@ const Profile = ({ handleChange, formState }) => {
 								type='text'
 								name='state'
 								id='state'
-								value={formState.state}
+								value={user.state}
 								onChange={(e) => handleChange(e)}
 								className='medium'
 							/>
@@ -188,7 +188,7 @@ const Profile = ({ handleChange, formState }) => {
 							type='text'
 							name='country'
 							id='country'
-							value={formState.country}
+							value={user.country}
 							onChange={(e) => handleChange(e)}
 						/>
 						<p className='error-msg -mt-3'>Country</p>
@@ -201,10 +201,10 @@ const Profile = ({ handleChange, formState }) => {
 							type='text'
 							name='timezone'
 							id='time'
-							value={formState.timezone}
+							value={user.timezone}
 							onChange={(e) => handleChange(e)}
 						/>
-						<p className='error-msg -mt-3'>zip</p>
+						{/* <p className='error-msg -mt-3'>zip</p> */}
 					</div>
 
 					<h6 className='font-semibold mt-3'>Default currency</h6>
@@ -214,10 +214,10 @@ const Profile = ({ handleChange, formState }) => {
 							type='text'
 							name='currency'
 							id='currency'
-							value={formState.currency}
+							value={user.currency}
 							onChange={(e) => handleChange(e)}
 						/>
-						<p className='error-msg -mt-3'>zip</p>
+						{/* <p className='error-msg -mt-3'>zip</p> */}
 					</div>
 				</div>
 			</div>
