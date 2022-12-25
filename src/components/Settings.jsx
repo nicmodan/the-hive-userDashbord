@@ -1,7 +1,7 @@
 import React, { useState, useReducer } from 'react';
 import { useFormContext } from '../context/FormContext';
 import { PERSONAL_INFO } from './forms_component/PERSONAL_INFO';
-import { FormReducer } from './forms_component/reducer/formReducer';
+import { FormReducer } from '../reducer/formReducer';
 import './settings.css';
 
 

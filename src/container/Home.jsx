@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { PERSONAL_INFO } from '../components/forms_component/PERSONAL_INFO';
 import { FormProvider } from '../context/FormContext';
@@ -18,7 +18,7 @@ const Home = () => {
 			payload: e.target.value,
 		});
 	};
-    
+	
 	return (
 		<div className='flex bg-gray-100 md:flex-row flex-col h-screen relative'>
 			<FormProvider value={{ user, handleChange }}>

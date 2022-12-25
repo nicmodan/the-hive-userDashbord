@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import {
 	FiTrendingUp,
@@ -14,21 +14,31 @@ const isNotActiveStyle =
 	'flex items-center  gap-3 text-gray-500 hover:text-black transistion-all duration-200 ease-in-out capitalize';
 
 const Sidebar = () => {
+	const [user, setUser] = useState(null)
+
+	useEffect(() => {
+		let userInfo = JSON.parse(localStorage.getItem("user"))
+		
+		const { name, picture, email } = userInfo
+		
+		setUser({name, picture, email})
+	}, [])
+	
 	return (
 		<div className='flex flex-col gap-6 items-start bg-white h-full overflow-y-scroll shadow-2xl sidebar-width hide-scrollbar px-4 py-5'>
 			<div className='flex gap-5'>
 				<div className=' bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center font-medium'>
-					MF
+					<img src={user?.picture} alt="profile pic" className='rounded-full' />
 				</div>
 				<div className='flex flex-col text-sm'>
 					<div className='flex items-center'>
-						<h3 className='text-sm font-medium pr-1'>Mike Flemings</h3>
+						<h3 className='text-sm font-medium pr-1'>{user?.name}</h3>
 						<FiChevronDown
 							size={15}
 							className='pt-1'
 						/>
 					</div>
-					<p className='text-xs opacity-95'>mikef101@gmail...</p>
+					<p className='text-xs opacity-95'>{user?.email}</p>
 				</div>
 			</div>
 

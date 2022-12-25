@@ -185,3 +185,10 @@ iframe {
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0;
 }
+
+.login {
+	border-radius: 5px !important;
+}
+.login:focus{
+    border: 1px solid rgb(141, 141, 228) !important;
+}
