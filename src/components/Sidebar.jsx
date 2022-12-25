@@ -45,7 +45,7 @@ const Sidebar = () => {
 			{/* NAV LINKS */}
 			<div className='flex flex-col gap-5 text-sm'>
 				<NavLink
-					to='/'
+					to='/Upgrades'
 					className={({ isActive }) =>
 						isActive ? isActiveStyle : isNotActiveStyle
 					}
@@ -54,7 +54,7 @@ const Sidebar = () => {
 					Upgrades
 				</NavLink>
 				<NavLink
-					to='stores'
+					to='/stores'
 					className={({ isActive }) =>
 						isActive ? isActiveStyle : isNotActiveStyle
 					}
