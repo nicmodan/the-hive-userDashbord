@@ -1,48 +1,40 @@
-import React, { useReducer, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { PERSONAL_INFO } from '../components/forms_component/PERSONAL_INFO';
-import { FormProvider } from '../context/FormContext';
-import { FormReducer } from '../reducer/FormReducer';
+import React, {useState} from 'react'
 
 import NavBar from '../components/NavBar';
 import Sidebar from '../components/Sidebar';
 import Dashboard from './Dashboard';
 
+import Sidebar from '../components/Sidebar'
+import Dashboard from './Dashboard'
+
+// IMPORTING MERGINES
+import SideMenuBar from '../user/SideMenuBar'
+
+
+
 const Home = () => {
-	// link form to reducers
-	const [user, dispatch] = useReducer(FormReducer, PERSONAL_INFO);
+    
+    const [mobileCheck, setMobilCheck] = useState(true)
 
-	const handleChange = (e) => {
-		dispatch({
-			type: 'HANDLE TEXT INPUT',
-			field: e.target.name,
-			payload: e.target.value,
-		});
-	};
-
-	return (
-		<>
-		{/* <div>
-			<NavBar />
-		</div> */}
-		
-		<div className='flex  bg-gray-100 md:flex-row flex-col h-screen relative'>
-			<FormProvider value={{ user, handleChange }}>
-				<div className='hidden md:flex h-screen flex-initial'>
-					<Sidebar />
-				</div>
-				<div className='flex-1 h-screen overflow-y-scroll'>
-					<Routes>
-						<Route
-							path='/*'
-							element={<Dashboard />}
-						/>
-					</Routes>
-				</div>
-			</FormProvider>
-		</div>
-		</>
-	);
-};
+    const mobileHandler = (condition)=>{
+        setMobilCheck(condition)
+    }
+    return (
+        <div className='flex bg-gray-100 md:flex-row flex-col h-screen relative'>
+            <div className='hidden md:flex h-screen flex-initial'>
+                {/* <Sidebar /> */}
+                <SideMenuBar mobileCheck={mobileHandler} />
+            </div>
+            <div className='flex-1 h-screen overflow-y-scroll'>
+                <Routes>
+                    <Route 
+                        path='/*'
+                        element={<Dashboard mobileCheck={mobileCheck} />}
+                    />
+                </Routes>
+            </div>
+        </div>
+    )
+}
 
 export default Home;
