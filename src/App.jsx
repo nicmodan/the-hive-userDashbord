@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './container/Home';
 import Login from './components/Login';
+import SignUp from './components/SignUp';
 
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
@@ -12,6 +13,10 @@ const App = () => {
 				<Route
 					path='login'
 					element={<Login />}
+				/>
+				<Route
+					path='signup'
+					element={<SignUp />}
 				/>
 				<Route
 					path='/*'

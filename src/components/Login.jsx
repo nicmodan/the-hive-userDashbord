@@ -18,9 +18,9 @@ const Login = () => {
 		}
 	};
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-    }
+	const handleSubmit = (e) => {
+		e.preventDefault();
+	};
 
 	return (
 		<section className='w-full h-screen flex justify-center items-center'>
@@ -29,7 +29,9 @@ const Login = () => {
 					<div className='w-12 h-12 flex justify-center items-center p-2 border-dashed rounded-lg border-blue-900 border-2'>
 						<h2 className='font-extrabold text-3xl'>TH</h2>
 					</div>
-					<p className='text-2xl md:text-4xl font-extrabold my-4'>Welcome Back</p>
+					<p className='text-2xl md:text-4xl font-extrabold my-4'>
+						Welcome Back
+					</p>
 					<div>
 						<GoogleLogin
 							onSuccess={responseGoogle}
@@ -83,12 +85,12 @@ const Login = () => {
 						</form>
 						<div className='mt-4 flex justify-center text-xs'>
 							<span>Don't have an account?</span>
-							<a
-								href='#'
+							<Link
+								to='/signup'
 								className='text-blue-900 underline ml-1 font-semibold'
 							>
 								Sign Up
-							</a>
+							</Link>
 						</div>
 					</div>
 				</div>

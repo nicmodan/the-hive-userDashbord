@@ -7,6 +7,7 @@ import {
 	FiCreditCard,
 	FiSettings,
 } from 'react-icons/fi';
+import { BiPen } from 'react-icons/bi'
 
 const isActiveStyle =
 	'flex items-center  gap-3 font-bold transistion-all duration-200 ease-in-out capitalize';
@@ -18,10 +19,12 @@ const Sidebar = () => {
 
 	useEffect(() => {
 		let userInfo = JSON.parse(localStorage.getItem("user"))
+		if(userInfo) {
+			const { name, picture, email } = userInfo
+			
+			setUser({name, picture, email})
+		}
 		
-		const { name, picture, email } = userInfo
-		
-		setUser({name, picture, email})
 	}, [])
 	
 	return (
@@ -44,6 +47,16 @@ const Sidebar = () => {
 
 			{/* NAV LINKS */}
 			<div className='flex flex-col gap-5 text-sm'>
+			<NavLink
+					to='/create'
+					className={({ isActive }) =>
+						isActive ? isActiveStyle : isNotActiveStyle
+					}
+				>
+					<BiPen size={20} />
+					Create
+				</NavLink>
+
 				<NavLink
 					to='/'
 					className={({ isActive }) =>
