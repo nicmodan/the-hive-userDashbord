@@ -25,6 +25,7 @@ const Dashboard = (props) => {
         <Route path='/Muckup' element={<Muckup />} />
         <Route path='/Upgrades' element={<Upgrade />} />
         <Route path='/payments' element={<Payment />} />
+        <Route path='/create' element={<Create />} />
         <Route path='/stores' element={<Stores />} />
         <Route path='/settings' element={<Settings />} />
       </Routes>

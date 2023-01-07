@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Paypal = ({ handleChange, formState }) => {
+const Paypal = ({ handleChange, user }) => {
 	return (
 		<div>
 			<div>
@@ -10,7 +10,7 @@ const Paypal = ({ handleChange, formState }) => {
 						type='email'
 						name='paypalEmail'
 						id='paypal-email'
-						value={formState.paypalEmail}
+						value={user.paypalEmail}
 						onChange={(e) => handleChange(e)}
 						placeholder='support@spri.ng'
 					/>
@@ -21,7 +21,7 @@ const Paypal = ({ handleChange, formState }) => {
 						type='email'
 						name='confirmPaypalEmail'
 						id='confirmPaypal-email'
-						value={formState.confirmPaypalEmail}
+						value={user.confirmPaypalEmail}
 						onChange={(e) => handleChange(e)}
 						placeholder='support@spri.ng'
 					/>

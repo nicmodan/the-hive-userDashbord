@@ -1,8 +1,9 @@
 import React, { useState, useReducer } from 'react';
-
+import { useFormContext } from '../context/FormContext';
 import { PERSONAL_INFO } from './forms_component/PERSONAL_INFO';
-import { FormReducer } from './forms_component/reducer/formReducer';
+import { FormReducer } from '../reducer/formReducer';
 import './settings.css';
+
 
 import {
 	Password,
@@ -15,16 +16,18 @@ import {
 
 const Settings = () => {
 	// This links the formstate state to the reducers
-	const [formState, dispatch] = useReducer(FormReducer, PERSONAL_INFO);
+	// const [formState, dispatch] = useReducer(FormReducer, PERSONAL_INFO);
 
-	const handleChange = (e) => {
-		dispatch({
-			type: 'HANDLE INPUT TEXT',
-			field: e.target.name,
-			payload: e.target.value,
-		});
-		// console.log(formState)
-	};
+	// const handleChange = (e) => {
+	// 	dispatch({
+	// 		type: 'HANDLE INPUT TEXT',
+	// 		field: e.target.name,
+	// 		payload: e.target.value,
+	// 	});
+	// 	// console.log(formState)
+	// };
+	const { user, handleChange } = useFormContext();
+	console.log(user)
 
 	return (
 		<div className='w-full'>
@@ -50,7 +53,7 @@ const Settings = () => {
 							<div className='px-5 mt-4'>
 								<Profile
 									handleChange={handleChange}
-									formState={formState}
+									user={user}
 								/>
 								<button className='bg-black text-xs px-6 py-2 text-white mt-8 mb-7'>
 									Update Info
@@ -68,7 +71,7 @@ const Settings = () => {
 							<div className='px-5 mt-4'>
 								<Password
 									handleChange={handleChange}
-									formState={formState}
+									user={user}
 								/>
 								<button className='bg-black text-xs px-6 py-2 text-white mb-8'>
 									Update Password
@@ -94,7 +97,7 @@ const Settings = () => {
 							<div className='px-5 mt-4'>
 								<Paypal
 									handleChange={handleChange}
-									formState={formState}
+									user={user}
 								/>
 								<button className='bg-black text-xs px-6 py-2 text-white mb-8'>
 									Set Paypal address

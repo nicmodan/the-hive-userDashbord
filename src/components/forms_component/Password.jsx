@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Password = ({handleChange, formState}) => {
+const Password = ({handleChange, user}) => {
 	return (
 		<div>
 			<div>
@@ -10,7 +10,7 @@ const Password = ({handleChange, formState}) => {
 						type='password'
 						name='password'
 						id='password'
-						value={formState.password}
+						value={user.password}
 						onChange={(e) => handleChange(e)}
             placeholder="Must be longer than 6 characters"
 					/>
@@ -21,7 +21,7 @@ const Password = ({handleChange, formState}) => {
 						type='password'
 						name='confirmPassword'
 						id='confirmpassword'
-						value={formState.confirmPassword}
+						value={user.confirmPassword}
 						onChange={(e) => handleChange(e)}
 					/>
 				</label>
