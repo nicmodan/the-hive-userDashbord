@@ -13,14 +13,14 @@ import { inistalizeNote } from './reducer/thehivecatlogreducer';
 
 
 const App = () => {
-  const newState = useSelector(state=>state.catlog)
+  const newState = useSelector(state=>state.user)
   const dispatch = useDispatch()
   
   useEffect(()=>{
     dispatch(inistalizeNote())
     console.log(newState)
 
-  }, [])
+  }, [useDispatch])
 
 	return (
    

@@ -1,29 +1,34 @@
 import React, {useState, useCallback, useRef} from "react"
-import { useSelector, useDispatch } from "react-redux";
 
 import ScreenShot from "./screenShot";
 
-import "../muckup.css"
+import "./muckup.css"
 
 
 import front from "../../Resources/front/front.png"
-import back from "../Resouces/back/back.png"
+import back from "../../Resources/back/back.png"
+// import front from "../../Resources"
 
 
-import logo from "../Resouces/Logo.jpg"
+import logo from "../../Resources/Logo.png"
 
-import 'html5-device-mockups/dist/device-mockups.min.css';
-// import { IPad } from 'react-device-mockups';
+// REDUX SETUP
+// import { updateUserStore } from "../../Service/user-Store";
+import {
+    // useDispatch, 
+    useSelector} from "react-redux"
 
-// import moqq from "moqq";
 
-const Muckup = (props) =>{
+
+const RenderMuckup = (props) =>{
 
     // REDUX STATE 
-    const orders = useSelector(state=>state.hiveShipingOrder)
-    const {images} = orders
     // const dispatch = useDispatch()
-    console.log(images)
+    const state = useSelector(state => state.user)
+    
+    const {uploadImg, designeText} = state
+    
+    // console.log(uploadImg)
     // This ref is connected to the list
 
     const [view, setView] = useState("front")
@@ -43,7 +48,8 @@ const Muckup = (props) =>{
     //     }
     // }, 20000)
     
-    return(
+    return (
+    // designeText &&
     <div className="muckup-body-container">
         <div className="muckup-body-main">
 
@@ -68,8 +74,7 @@ const Muckup = (props) =>{
 
             {
                 Object.keys(samplePreview["image_links"]).map((val, key)=>(
-                    
-                        images && 
+                
                         <ScreenShot 
                         key={key}
                         preview={preview} 
@@ -77,7 +82,12 @@ const Muckup = (props) =>{
                         val={val}
                         imageToOrder={samplePreview["image_links"][val]} 
                         // imageToDesign={logo}
-                        imageToDesign={URL.createObjectURL(images)}
+                        imageToDesign={
+                            uploadImg? 
+                            URL.createObjectURL(uploadImg)
+                            :""
+                        }
+                        designeText={designeText}
                         />
                    
                 ))
@@ -104,7 +114,18 @@ const Muckup = (props) =>{
         </div>
 
     </div>
+    // }
+
+    // {
+    // !designeText &&
+    // <div className="muckup-body-container">
+    //     <h1>
+    //         please upload an image
+    //     </h1>
+    // </div>
+    // }
     )
+    
 }
 
-export default Muckup
+export default RenderMuckup
