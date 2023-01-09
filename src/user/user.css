@@ -389,7 +389,7 @@
 .muckup-tools{
     width: 40%;
     height: 100%;
-    background-color: forestgreen;
+    background-color: whitesmoke;
     overflow: scroll;
 }
 .container-tools-edit{
@@ -397,21 +397,279 @@
     border-bottom: 1px solid black;
     height: 300px;
     padding-top: 30px;
-}
-.upload-image-text{
-    height: 250px;
     padding-left: 15px;
 }
-.upload-image-text>h4{
-    margin-bottom: 20px;
+.set-user-price{
+    height: 390px;
 }
-.upload-image-text>p{
-    margin-bottom: 20px;
+/* ********************** COPIED FRAME FOR MUCKUP ************************** */
+
+.set-user-price{
+    cursor: default;
+    tab-size: 4;
+    -webkit-tap-highlight-color: transparent;
+    word-break: break-word;
+    -webkit-text-size-adjust: 100%;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --header-line-height: 1.2;
+    --header-01-font-size: 2.6rem;
+    --header-02-font-size: 1.5rem;
+    --header-03-font-size: 1.125rem;
+    --header-04-font-size: 1rem;
+    --body-line-height: 1;
+    --body-02-font-size: 0.875rem;
+    --label-line-height: 1;
+    --label-02-font-size: 0.75rem;
+    --color-primary-black: #08080d;
+    --color-grey-01: #2e2e2e;
+    --color-grey-02: #757575;
+    --color-notification-red: #df0403;
+    --vh: 6.25px;
+    --vh-100: 625px;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Mr Eaves XL Modern","Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: unset;
+    color: #08080d;
+    box-sizing: border-box;
+    margin-top: 24px;
 }
+.title{
+    tab-size: 4;
+    -webkit-tap-highlight-color: transparent;
+    word-break: break-word;
+    -webkit-text-size-adjust: 100%;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --header-line-height: 1.2;
+    --header-01-font-size: 2.6rem;
+    --header-02-font-size: 1.5rem;
+    --header-03-font-size: 1.125rem;
+    --header-04-font-size: 1rem;
+    --body-line-height: 1;
+    --body-02-font-size: 0.875rem;
+    --label-line-height: 1;
+    --label-02-font-size: 0.75rem;
+    --color-primary-black: #08080d;
+    --color-grey-01: #2e2e2e;
+    --color-grey-02: #757575;
+    --color-notification-red: #df0403;
+    --vh: 6.25px;
+    --vh-100: 625px;
+    -webkit-font-smoothing: antialiased;
+    color: #08080d;
+    box-sizing: border-box;
+    touch-action: manipulation;
+    display: block;
+    margin-bottom: 3px;
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    letter-spacing: -.02em;
+}
+.subtitle{
+    cursor: default;
+    tab-size: 4;
+    -webkit-tap-highlight-color: transparent;
+    word-break: break-word;
+    -webkit-text-size-adjust: 100%;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --header-line-height: 1.2;
+    --header-01-font-size: 2.6rem;
+    --header-02-font-size: 1.5rem;
+    --header-03-font-size: 1.125rem;
+    --header-04-font-size: 1rem;
+    --body-line-height: 1;
+    --body-02-font-size: 0.875rem;
+    --label-line-height: 1;
+    --label-02-font-size: 0.75rem;
+    --color-primary-black: #08080d;
+    --color-grey-01: #2e2e2e;
+    --color-grey-02: #757575;
+    --color-notification-red: #df0403;
+    --vh: 6.25px;
+    --vh-100: 625px;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -.01em;
+    color: #767676;
+    padding-top: 6px;
+}
+/* ********************** COPIED FRAME FOR MUCKUP ************************** */
+
+.upload-image-text{
+    height: 225px;
+    /* padding-left: 15px; */
+}
+.muckup-title{
+    margin-bottom: 20px;
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    letter-spacing: -.02em;
+}
+.muckup-subtitle{
+    margin-bottom: 20px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -.01em;
+    color: #767676;
+    padding-top: 6px;
+}
+.container-tools-edit-buttons{
+    width: 100%;
+    height: 45%;
+    display: flex;
+    gap: 20px;
+}
+.upload-img-text{
+    width: 45%;
+    height: 50%;
+    /* background-color: #767676; */
+    position: relative;
+
+}
+.upload-img-text-contain{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 2px solid #e5e7eb;
+    border-radius: 15px;
+    /* padding */
+    cursor: pointer;
+}
+.addImageText{
+    width: auto;
+    height: auto
+}
+
+.UploadButton {
+    display: flex;
+    flex: 1 1 180px;
+    justify-content: flex-end;
+}
+.position-input{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    cursor: pointer;
+}
+.position-span{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.addImageLayerButton, .addTextLayerButton {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: -.01em;
+    color: #262626;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 16px;
+}
+.layerButton {
+    /* border: 1px solid #08080d; */
+    /* color: #fff; */
+    /* background-color: #08080d; */
+    flex: 1 1 180px;
+    /* font-size: 18px; */
+    position: relative;
+    white-space: nowrap;
+}
+.button {
+    /* font-size: 1rem; */
+    /* line-height: 1.5; */
+    padding: 0.4375rem 1.75rem;
+    /* border: 0; */
+    /* border-radius: 2px; */
+    /* color: #fff; */
+    /* font-weight: 600; */
+    /* -webkit-transition: all .15s; */
+    transition: all .15s;
+    /* -webkit-user-select: none; */
+    /* -moz-user-select: none; */
+    /* -ms-user-select: none; */
+    user-select: none;
+    /* -webkit-tap-highlight-color: rgba(0,0,0,0); */
+    -webkit-tap-highlight-color: transparent;
+    /* display: inline-block; */
+}
+span.addImageButton {
+    color: #000;
+}
+.addImageButton {
+    margin-left: 9px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.colorPickerSwatch .productColor, .featuredColorSelection .productColor {
+    border: 1px solid rgba(8,8,13,.15);
+    display: inline-block;
+    height: 30px;
+    margin: 0 12px 10px 0;
+    position: relative;
+    width: 30px;
+}
+.CustomizerControls .productColor {
+    /* border: 1px solid #08080d; */
+    cursor: default;
+    /* display: inline-block;
+    height: 30px;
+    margin: 0 10px 8px 0;
+    width: 30px; */
+}
+.productColor {
+    /* border: 2px solid #cdcdcd; */
+    border-radius: 50%;
+    /* cursor: pointer;
+    height: 30px;
+    margin: 5px;
+    width: 30px; */
+}
+/* .addImageButton {
+    margin-right: 9px;
+} */
 .muckup-engine{
     width: 60%;
     height: 100%;
-    background-color: #686868;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.muckup-eng-img{
+   width: 80%;
+   height: 75%; 
+   background-color: whitesmoke;
 }
 
 
@@ -419,4 +677,8 @@
 
 .dashbord{
     position: relative;
+}
+.colorPickerSwatch{
+    width: auto;
+    height: auto;
 }

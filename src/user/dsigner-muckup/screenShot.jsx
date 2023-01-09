@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react"
 import MainMuckup from "./mainMuckup";
 import { useSelector, useDispatch } from "react-redux";
-import { getHiveShipingOrders } from "../reducers/address&orders";
+// import { getHiveShipingOrders } from "../reducers/address&orders";
+import {updateUserStore} from '../../Service/user-Store'
 // import { useScreenshot } from 'use-react-screenshot'
 
 
@@ -10,7 +11,7 @@ const ScreenShot = (props) =>{
     const [screenShoot, setScreenShoot] = useState(undefined)
 
      // REDUX STATE 
-     const orders = useSelector(state=>state.hiveShipingOrder)
+     const orders = useSelector(state=>state.user)
      const dispatch = useDispatch()
 
 
@@ -18,7 +19,7 @@ const ScreenShot = (props) =>{
     // const [image, takeScreenshot] = useScreenshot()
     // const getImage = () => takeScreenshot(ref.current)
 
-    const {preview, view, val, imageToOrder, imageToDesign} = props
+    const {preview, view, val, imageToOrder, imageToDesign, designeText} = props
 
     // This ref is connected to the list
     const handelSceenShoot = (image) =>{
@@ -31,7 +32,7 @@ const ScreenShot = (props) =>{
         data[`${val}Muckup`] = screenShoot
         // {storeMuckup: null}
         // data["storeMuckup"][`${val}Muckup`] = screenShoot
-        dispatch(getHiveShipingOrders({...orders, ...data}))
+        dispatch(updateUserStore({...orders, ...data}))
         console.log({...orders, ...data})
 
    }, [screenShoot])
@@ -47,10 +48,12 @@ const ScreenShot = (props) =>{
                         
                         <div className="muckup-div-sample" >
                             {console.log(val)}
+                            {console.log(`imageToDesign: ${imageToDesign}`)}
                             <MainMuckup 
                                 imageToOrder={imageToOrder}
                                 imageToDesign={imageToDesign} 
                                 screenShoot={handelSceenShoot}
+                                designeText={designeText} 
                             />
                         </div>
                         

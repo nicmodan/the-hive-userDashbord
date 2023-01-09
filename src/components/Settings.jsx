@@ -17,17 +17,18 @@ import {
 const Settings = () => {
 	// This links the formstate state to the reducers
 	// const [formState, dispatch] = useReducer(FormReducer, PERSONAL_INFO);
+	const [user, dispatch] = useFormContext();
 
-	// const handleChange = (e) => {
-	// 	dispatch({
-	// 		type: 'HANDLE INPUT TEXT',
-	// 		field: e.target.name,
-	// 		payload: e.target.value,
-	// 	});
-	// 	// console.log(formState)
-	// };
-	const { user, handleChange } = useFormContext();
-	console.log(user)
+	const handleChange = (e) => {
+		dispatch({
+			type: 'HANDLE INPUT TEXT',
+			field: e.target.name,
+			payload: e.target.value,
+		});
+		// console.log(formState)
+	};
+	// const { user, handleChange } = useFormContext();
+	// console.log(user)
 
 	return (
 		<div className='w-full'>

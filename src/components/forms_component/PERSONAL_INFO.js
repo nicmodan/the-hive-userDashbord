@@ -15,7 +15,7 @@ export const PERSONAL_INFO = {
 	confirmPassword: '',
 	paypalEmail: '',
 	confirmPaypalEmail: '',
-	storeName: 'my-store-d74da',
+	storeName: 'theHiveAfirca',
 	socials:[
 		{
 			logo: '',

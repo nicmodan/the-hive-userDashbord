@@ -64,7 +64,7 @@ const customStyle = {
 };
 const Stores = () => {
 	let linkInput = useRef(null);
-	const { user } = useFormContext();
+	const [user, dispatch] = useFormContext();
 
 	const [storeLink, setStoreLink] = useState(user.storeName);
 	const [isfocused, setIsfocused] = useState(false);
@@ -86,8 +86,18 @@ const Stores = () => {
 	const updateSocials = (e) => {
 		e.preventDefault();
 		setsocialInfo((prevObj) =>
-			prevObj.map((social) => {
+			prevObj.map((social, idx) => {
 				if (selectedSocials?.value == social.name) {
+					const newSocials = {...user}
+					// const userSocials = {...newSocials, socials: } 
+					dispatch({
+						type: 'HANDLE SOCIAL INPUT',
+						// field: newSocials["social"][idx]["url"],
+						payload: {
+							socials: [...user["socials"], ...[...user["socials"][idx], ...{url: linkInfo}]]
+						},
+						// payload: { ...social, url: linkInfo },
+					})
 					return { ...social, url: linkInfo };
 				}
 				return social;
@@ -96,6 +106,8 @@ const Stores = () => {
 		setIsSelected(false);
 		setModalOpen(false);
 		setLinkInfo('');
+
+		
 	};
 
 	const handleDelete = (e) => {

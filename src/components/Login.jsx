@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
+// import bycrpt 
 
 import hero from '../assets/hero_auth.png';
 
@@ -10,8 +11,8 @@ const Login = () => {
 
 	const responseGoogle = async (res) => {
 		try {
-			const decoded_response = jwt_decode(res.credential);
-			localStorage.setItem('user', JSON.stringify(decoded_response));
+			const decoded_response = res.credential//jwt_decode(res.credential);
+			localStorage.setItem('user', JSON.stringify(jwt_decode(decoded_response)));
 			navigate('/', { replace: true });
 		} catch (error) {
 			console.log(err);

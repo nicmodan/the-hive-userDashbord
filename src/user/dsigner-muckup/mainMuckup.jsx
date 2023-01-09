@@ -1,15 +1,15 @@
 import React, {useState, useCallback, useRef, createRef, useEffect} from "react"
-import Resizer from "react-image-file-resizer";
+// import Resizer from "react-image-file-resizer";
 import {animated, useSpring} from "react-spring"
 import {useDrag} from "@use-gesture/react"
 
-import { useSelector, useDispatch } from "react-redux"
-import { getHiveShipingOrders } from "../reducers/address&orders";
-import {BrowserMockup} from 'react-mockup'
-import 'react-mockup/dist/index.css'
-import "../muckup.css"
+// import { useSelector, useDispatch } from "react-redux"
+// import { getHiveShipingOrders } from "../reducers/address&orders";
+// import {BrowserMockup} from 'react-mockup'
+// import 'react-mockup/dist/index.css'
+import "./muckup.css"
 
-import 'html5-device-mockups/dist/device-mockups.min.css';
+// import 'html5-device-mockups/dist/device-mockups.min.css';
 // import { IPad } from 'react-device-mockups';
 
 // import moqq from "moqq";
@@ -17,12 +17,17 @@ import 'html5-device-mockups/dist/device-mockups.min.css';
 // IMPORT SCREEN SHOOT WEB APPLICATION
 import { useScreenshot } from 'use-react-screenshot'
 
+// REDUX STORE SETUP
+import { useSelector } from "react-redux"
 
 const MainMuckup = (props) =>{
+
     const {screenShoot} = props
+    // const [fontSize, setFontSize] = useState()
 
     //REDUX STORE DISPACH MUCKUP IMAGES
-    // const state = useSelector(state=>state.hiveShipingOrder)
+    const state = useSelector(state => state.user)
+    const {designeText, designeColor} = state
     // const dispatch = useDispatch()
 
     // SCREEN SHOT PREP
@@ -48,8 +53,16 @@ const MainMuckup = (props) =>{
     const border = displayBorder? "1px dashed orange": ""
 
     // PROPS
-    const {imageToOrder, imageToDesign} = props
+    const {imageToOrder, 
+            imageToDesign, 
+            // designeText
+        } = props
 
+    // HANDEL TEXT DESIGNE IMAGE
+    const [designeTextValue, setDesigneTextValue] = useState("")
+    const handelChangeText = (e) =>{
+        setDesigneTextValue(e.target.value)
+    }
 
 
     // This ref is connected to the list
@@ -60,10 +73,13 @@ const MainMuckup = (props) =>{
     const bind = useDrag((state)=>{
         // window.off
         const isResizing = (state?.event.target===dragERef.current)
+
         if(isResizing){
             api.set({
                 width: state.offset[0],
                 height: state.offset[1],
+                // TEXT SIZE
+                // setFontSize( {state.offset[0] + state.offset[1]} )
             })
         }else{
             api.set({
@@ -132,6 +148,7 @@ const MainMuckup = (props) =>{
                 >
                 <img ref={listRef}
                     src={imageToOrder} alt="front"  className="muckup-img"
+                    style={{backgroundColor: designeColor }}
                 />
             </div>
             <animated.div  
@@ -141,11 +158,25 @@ const MainMuckup = (props) =>{
                 onClick={OnEnterCropMode} className="muckup-main-img-edite-design">
                 <div className="muckup-img-design">
                     <div className={"muckup-img-design-contain"}>
-                        <img 
-                            src={imageToDesign} alt="front" className="muckup-design-img" 
-                        />
+                        {designeText || imageToDesign?
+                        <>
+                            <img 
+                                src={imageToDesign} alt="Your Designed Image" className="muckup-design-img"
+                                // style={{backgroundColor: designeColor }} 
+                            />
+                            <div className="muckup-design-img-cover"></div>
+                        </>:
                         
-                        <div className="muckup-design-img-cover"></div>
+                        <input type={'text'} 
+                                value={designeTextValue} 
+                                onChange={handelChangeText}
+                                id="txtbox"
+                                spellCheck={"false"}
+                                />
+                        }
+                        
+                       
+                        {/* <div className="muckup-design-img-cover"></div> */}
                     </div>
                 </div>
                 

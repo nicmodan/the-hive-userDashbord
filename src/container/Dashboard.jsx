@@ -4,6 +4,7 @@ import Payment from '../components/Payment'
 import Settings from '../components/Settings'
 import Upgrade from '../components/Upgrade'
 import Stores from '../components/Stores'
+import Create from "../components/Create"
 import "../user/user.css"
 
 // IMPOKRT DASHBORD MERGES
