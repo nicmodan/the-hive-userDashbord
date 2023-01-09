@@ -158,7 +158,7 @@ const MainMuckup = (props) =>{
                 onClick={OnEnterCropMode} className="muckup-main-img-edite-design">
                 <div className="muckup-img-design">
                     <div className={"muckup-img-design-contain"}>
-                        {!designeText?
+                        {designeText || imageToDesign?
                         <>
                             <img 
                                 src={imageToDesign} alt="Your Designed Image" className="muckup-design-img"
